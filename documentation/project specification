@@ -1,0 +1,33 @@
+- WHAT LANGUAGE
+I can make peer rewievs using Java or Python
+
+Algorihtms I use:
+- Randomgenerator for making the (undirected) graph
+- Cellural automata for making the cave from the graph
+- Visual representation
+- Calculating size of the cave for deleting the smaller, unavailable caves.
+
+I'll be using probably adjacency lists/matrix as a data structure
+
+Procedual generation of caves using cellural automata. Challenge is to make
+sure there is always a way out of the cave. Also I need to make sure that the 
+generated cave will be big enough and the smaller, unaccessable caves 
+will be removed. Also the cave cannot go over the edges of the graph.
+
+- 2D graph of cells. A cell can be either a wall or a floor, using boolean values
+- The graph is filled randomly with walls and floors
+- the cave is made from the randomly generated graph by applyiong the rules
+ of the cellural autamata n-iterations 
+- Lastly it's neccesaey to make sure that the is large enough and there is a way out of the cave.
+- Smaller, unavailable caves will be removed.
+
+Software will have input to determine the size of the graph and how many iterations 
+the cellural autamata will go trough and how many wall cells there will be when initializin the graph.
+
+Space complexity is at least 2(nm)
+Expected time will probably be at least p(nm)
+
+Sources:
+
+CS bachelor
+English

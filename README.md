@@ -1,4 +1,4 @@
-#Cave generator
+# Cave generator
 
 ### Doumentation:
 * [Specification document](https://github.com/Maijjay/tira-cavegenerator/blob/main/documentation/project%20specification)

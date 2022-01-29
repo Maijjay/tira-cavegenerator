@@ -85,6 +85,8 @@ class Node:
     # Counts how many of the nodes neighbours are floor
     def countNeighbours(self):
         count = 0
+        if(self.neighbours == None):
+            return count
         for i in range(len(self.neighbours)):
             if self.neighbours[i].floor == True:
                 count +=1
@@ -137,8 +139,9 @@ def randomBoolean(percent):
     return random.randrange(100) < percent
 
 # Sorts the graph according to given rules
-def sortGraph(row, col, graph):  
+def sortGraph(row, col):  
     newGraph = graph
+
     for r in range(row):
         for c in range(col):
             floors = graph[r][c].countNeighbours()
@@ -151,7 +154,6 @@ def sortGraph(row, col, graph):
 
 # Prints the graph, "X" is wall and "." is floor
 def printGraph(row, col):
-    print("")
     for r in range(row):
         for c in range(col):
             if graph[r][c].floor == True:
@@ -165,8 +167,9 @@ def app():
     row = 30
     col = 30
     percent = 60
+    makeGraph(row, col, percent)
     for i in range(20):
-        makeGraph(row, col, percent)
+        sortGraph(row, col)
     printGraph(row, col)
 
 

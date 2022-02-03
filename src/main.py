@@ -10,13 +10,15 @@ import numpy as np
 import graphs as g
 
 def app():
-    row = 30
-    col = 30
+    row = 8
+    col = 8
     percent = 60
     graph = g.makeGraph(row, col, percent)
-    for i in range(20):
+    for i in range(5):
         g.sortGraph(row, col, graph)
+    biggest = g.search(row, col, graph)
     g.printGraph(row, col, graph)
+    print(biggest)
 
 
 def main():

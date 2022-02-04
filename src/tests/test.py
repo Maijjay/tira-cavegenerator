@@ -62,19 +62,24 @@ class TestMain(unittest.TestCase):
      
         self.assertEqual(graph[0][1].floor, False)
 
-    # def test_sortGraph_wall_to_floor_if_exactly_three_neighbour_walls(self):
-    #     row = 3
-    #     col = 3
-    #     percent = 100
-    #     graph = g.makeGraph(row, col, percent)
-    #     graph[0][0].setFloor(False)
-    #     print("1",graph[0][0].floor)
-    #     print("2",graph[1][1].floor)
-    #     print("3",graph[0][1].floor)
-    #     print("4",graph[1][0].floor)
-    #     graph = g.sortGraph(row, col, graph)
-    #     print("1",graph[0][0].floor)
-    #     self.assertEqual(graph[0][0].floor, True)
+    def test_sortGraph_wall_to_floor_if_exactly_three_neighbour_walls(self):
+        row = 3
+        col = 3
+        percent = 100
+        graph = g.makeGraph(row, col, percent)
+        graph[0][0].setFloor(False)
+        graph = g.sortGraph(row, col, graph)
+        self.assertEqual(graph[0][0].floor, True)
+    
+    def test_addNeighbours_adds_right_amout_o_neighbours(self):
+        row = 3
+        col = 3
+        percent = 100
+        graph = g.makeGraph(row, col, percent)
+        corner = graph[0][0].countNeighbours
+        middle = graph[1][1].countNeighbours
+        side = graph[0][1].countNeighbours
+        self.assertEqual(corner == 3, middle == 8, side == 5)
 
 if __name__ == '__main__':
     unittest.main()

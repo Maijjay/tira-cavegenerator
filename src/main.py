@@ -1,28 +1,25 @@
-import functools
-import graphlib
-from math import floor
-from queue import Empty
-import random
-from signal import alarm
-from xmlrpc.client import Boolean
-import numpy as np
-
+"""
+adad
+"""
 import graphs as g
 
 def app():
-    row = 8
-    col = 8
+    """Starts the program"""
+    row = 5
+    col = 5
     percent = 60
-    graph = g.makeGraph(row, col, percent)
-    for i in range(5):
-        g.sortGraph(row, col, graph)
-    biggest = g.search(row, col, graph)
-    g.printGraph(row, col, graph)
-    print(biggest)
+    graph = g.make_graph(row, col, percent)
+    g.print_graph(row, col, graph)
+
+    for _ in range(1):
+        g.modify_graph(row, col, graph)
+        print("----------")
+    g.search(row, col, graph)
+    g.print_graph(row, col, graph)
 
 
 def main():
-   
+    """Statts app()"""
     app()
     print("   ")
 

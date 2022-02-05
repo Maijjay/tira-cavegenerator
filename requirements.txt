@@ -1,0 +1,18 @@
+astroid==2.9.3
+attrs @ file:///Users/maija/Library/Caches/pypoetry/artifacts/5b/25/94/5d165cd3190cb7dfdc98de86c28e8131fc6e19d83a504412664abffec0/attrs-21.4.0-py2.py3-none-any.whl
+coverage @ file:///Users/maija/Library/Caches/pypoetry/artifacts/ae/6e/c4/4828bf0eb15358ef494e7d9e6fd40ab1ae9626e2de58a616fa1375d2c3/coverage-6.3-cp39-cp39-macosx_10_9_x86_64.whl
+iniconfig @ file:///Users/maija/Library/Caches/pypoetry/artifacts/fa/b0/c6/10cfac68c9e6de9d2a1678366ca89fd9292b362c1760dbe758e41691cb/iniconfig-1.1.1-py2.py3-none-any.whl
+isort==5.10.1
+lazy-object-proxy==1.7.1
+mccabe==0.6.1
+numpy==1.22.1
+packaging @ file:///Users/maija/Library/Caches/pypoetry/artifacts/47/3f/ce/b240169f7d8bef1ff24a0269b709721ce86543c2ec25e0b6adb2c2d7ac/packaging-21.3-py3-none-any.whl
+platformdirs==2.4.1
+pluggy @ file:///Users/maija/Library/Caches/pypoetry/artifacts/81/78/ca/13f743a3628faf5a0b7f021efb45f2193acba3a13663d498f6b34bf02e/pluggy-1.0.0-py2.py3-none-any.whl
+py @ file:///Users/maija/Library/Caches/pypoetry/artifacts/b3/5c/47/ba5a596e01a2b61fa2daa6a438252483ad8c04e6c99e5dc22eaf8a489a/py-1.11.0-py2.py3-none-any.whl
+pylint==2.12.2
+pyparsing @ file:///Users/maija/Library/Caches/pypoetry/artifacts/8e/18/e1/a47fbcc66e38a452c34d2a444d74d8a03fd4aa7c0b6e27c0bee1582107/pyparsing-3.0.7-py3-none-any.whl
+pytest @ file:///Users/maija/Library/Caches/pypoetry/artifacts/28/be/f1/ce8fa22c989106fc7c1ee7fa31d55d7f31aee1c58c63b2a43670601b79/pytest-6.2.5-py3-none-any.whl
+toml @ file:///Users/maija/Library/Caches/pypoetry/artifacts/6b/6a/c9/53b19f7870a77d855e8b05ecdc98193944e5d246dafe11bbcad850ecba/toml-0.10.2-py2.py3-none-any.whl
+typing_extensions==4.0.1
+wrapt==1.13.3

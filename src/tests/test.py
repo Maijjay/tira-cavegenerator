@@ -15,7 +15,7 @@ class TestMain(unittest.TestCase):
         row = 5
         col = 5
         percent = 100
-        graph = g.makeGraph(row, col, percent)
+        graph = g.make_graph(row, col, percent)
         floors = 0
         for r in range(row):
             for c in range(col):
@@ -27,7 +27,7 @@ class TestMain(unittest.TestCase):
         row = 3
         col = 3
         percent = 100
-        graph = g.makeGraph(row, col, percent)
+        graph = g.make_graph(row, col, percent)
         nodeCount = 0
         for r in range(row):
             for c in range(col):
@@ -39,17 +39,17 @@ class TestMain(unittest.TestCase):
         percent1 = 0
         percent2 = 100
         
-        zeroper = g.randomBoolean(percent1)
-        hundredper = g.randomBoolean(percent2)
+        zeroper = g.random_boolean(percent1)
+        hundredper = g.random_boolean(percent2)
         self.assertEqual(zeroper == True, hundredper == False)
 
     def test_sortGraph_floor_to_wall_if_below_two_neighbour_walls(self):
         row = 3
         col = 3
         percent = 0
-        graph = g.makeGraph(row, col, percent)
-        graph[0][0].setFloor(True)
-        graph = g.sortGraph(row, col, graph)
+        graph = g.make_graph(row, col, percent)
+        graph[0][0].set_floor(True)
+        graph = g.modify_graph(row, col, graph)
      
         self.assertEqual(graph[0][0].floor, False)
     
@@ -57,8 +57,8 @@ class TestMain(unittest.TestCase):
         row = 3
         col = 3
         percent = 100
-        graph = g.makeGraph(row, col, percent)
-        graph = g.sortGraph(row, col, graph)
+        graph = g.make_graph(row, col, percent)
+        graph = g.modify_graph(row, col, graph)
      
         self.assertEqual(graph[0][1].floor, False)
 
@@ -66,19 +66,19 @@ class TestMain(unittest.TestCase):
         row = 3
         col = 3
         percent = 100
-        graph = g.makeGraph(row, col, percent)
-        graph[0][0].setFloor(False)
-        graph = g.sortGraph(row, col, graph)
+        graph = g.make_graph(row, col, percent)
+        graph[0][0].set_floor(False)
+        graph = g.modify_graph(row, col, graph)
         self.assertEqual(graph[0][0].floor, True)
     
     def test_addNeighbours_adds_right_amout_o_neighbours(self):
         row = 3
         col = 3
         percent = 100
-        graph = g.makeGraph(row, col, percent)
-        corner = graph[0][0].countNeighbours
-        middle = graph[1][1].countNeighbours
-        side = graph[0][1].countNeighbours
+        graph = g.make_graph(row, col, percent)
+        corner = graph[0][0].count_neighbours
+        middle = graph[1][1].count_neighbours
+        side = graph[0][1].count_neighbours
         self.assertEqual(corner == 3, middle == 8, side == 5)
 
 if __name__ == '__main__':

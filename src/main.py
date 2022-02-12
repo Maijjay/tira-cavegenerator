@@ -2,6 +2,7 @@
 adad
 """
 import graphs as g
+import ui as ui
 
 def app():
     """Starts the program"""
@@ -16,10 +17,12 @@ def app():
         print("----------")
     g.search(row, col, graph)
     g.print_graph(row, col, graph)
+    ui.start()
+
 
 
 def main():
-    """Statts app()"""
+    """Starts the app()"""
     app()
     print("   ")
 

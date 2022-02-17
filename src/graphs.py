@@ -91,8 +91,8 @@ def search(row, col, graph):
                     cave_size = new_lenght
 
     delete_small_caves(row, col, graph, largest_cave)
-    print(len(largest_cave))
-    return cave_size
+    # print(len(largest_cave))
+    return graph
 
 def depth_search(node, visited, current_cave):
     """Makes a depth first search to the graph
@@ -121,6 +121,7 @@ def delete_small_caves(row, col, graph, largest_cave):
         for current_c in range(col):
             if graph[current_r][current_c] not in largest_cave:
                 graph[current_r][current_c].floor = False
+    return graph
 
 def print_graph(row, col, graph):
     """Prints the graph, "X" is wall and "  " is floor

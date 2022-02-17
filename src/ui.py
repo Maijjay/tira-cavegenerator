@@ -1,13 +1,5 @@
-# from contextlib import nullcontext
-# from tkinter import Button
-# import PySimpleGUI as sg
-# from tkinter import *
-# from tkinter import tkk
-from queue import Empty
-from sqlite3 import Row
-from tkinter.tix import INTEGER
-import graphs as g
 
+import graphs as g
 from tkinter import *
 from tkinter import ttk
 import tkinter as tk
@@ -23,12 +15,19 @@ global row
 global col
 global percent
 global graph
-#Input frame
+
 frame = ttk.Frame(root)
 frame.grid(row=0, column=1)
 
+
 def initializeGrid(r, c, p):
-    
+    """Calls the graph making method with the given parameters
+    and displays the modify and get biggest cave - buttons
+    Args:
+        r (int): How many rows does the graph have
+        c (int): How many colums does the graph have
+        p (int): What is the likelihood of a cell to be a floor
+    """
     row = int(r.get())
     col = int(c.get())
     percent = int(p.get())
@@ -49,18 +48,41 @@ def initializeGrid(r, c, p):
     displayGraph(row, col, graph)
 
 
-
 def modifyGraph(row, col, graph):
+    """When modifyGraph -button is pressed this method calls the 
+    method that modifies the graph with cellural automata
+
+    Args:
+        row (int): Number of rows
+        col (int): Number of columns
+        graph ([][]): Randomly generated graph
+    """
     graph = g.modify_graph(row, col, graph)
     displayGraph(row, col, graph)
 
+
 def getBiggestCave(row, col, graph):
+    """Calls the graps search method that makes the depth-first-search 
+    and finds the biggest cave
+
+    Args:
+        row (int): Number of rows
+        col (int): Number of columns
+        graph ([][]): Graph arranged according to rules
+    """
     graph = g.search(row, col, graph)
     displayGraph(row, col, graph)
 
 
 def displayGraph(row, col, graph):
+    """Displays the graph on the window. Red squares represent floors
+     and green ones the walls
 
+    Args:
+        row (int): Number of rows
+        col (int): Number of columns
+        graph ([][]): Graph with floors and walls
+    """
     for i in range(0, row):
         for j in range(0, col):
             floor = tk.Canvas(root, bg="red", height=30, width=30)
@@ -74,6 +96,8 @@ def displayGraph(row, col, graph):
 
 
 def start():
+    """Starts the window and displays entries for inputs and buttons.
+    """
     row = 0
     col = 0
     percent = 0

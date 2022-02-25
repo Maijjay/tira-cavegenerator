@@ -6,7 +6,7 @@ class Node:
     Returns: Node: one node on graph
     """
 
-    def __init__(self, floor: boolean, x_row: int, y_col: int):
+    def __init__(self, floor: boolean, x_row: int, y_col: int): # pragma: no cover
         self.floor = floor
         self.neighbours = []
         self.x_row = x_row
@@ -19,12 +19,12 @@ class Node:
         """
         self.floor = floor
 
-    def get_floor(self):
+    def get_floor(self): # pragma: no cover
         """Returns: boolean: true if floor"""
         return self.floor
 
-    def get_xy(self):
-        """Returns position of the nodein graph
+    def get_xy(self): # pragma: no cover
+        """Returns position of the node in graph
         """
         return self.x_row, self.y_col
 

@@ -3,7 +3,7 @@ import random
 import numpy as np
 import nodes as n
 
-def __init__(self, row, col):
+def __init__(self, row, col): # pragma: no cover
     self.row = row
     self.col = col
 
@@ -123,7 +123,7 @@ def delete_small_caves(row, col, graph, largest_cave):
                 graph[current_r][current_c].floor = False
     return graph
 
-def print_graph(row, col, graph):
+def print_graph(row, col, graph): # pragma: no cover
     """Prints the graph, "X" is wall and "  " is floor
 
     Args:

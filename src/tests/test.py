@@ -6,7 +6,7 @@ import graphs as g
 
 class TestMain(unittest.TestCase):
     
-    def setUp(self):
+    def setUp(self): 
         row = 5
         col = 5
         percent = 100
@@ -70,7 +70,49 @@ class TestMain(unittest.TestCase):
         graph[0][0].set_floor(False)
         graph = g.modify_graph(row, col, graph)
         self.assertEqual(graph[0][0].floor, True)
+
+    def test_search_finds_biggest_cave(self):
+        row = 8
+        col = 8
+        percent = 0
+        graph = g.make_graph(row, col, percent)
+
+        #Makes a cave of 8 nodes in the last row
+        for i in range(8):
+            graph[7][i-1].set_floor(True)
+        
+        #Makes a cave of 5 nodes in the first row
+        for i in range(5):
+            graph[0][i-1].set_floor(True)
+        
+        #Search method calls the search and the removes the small caves
+        graph = g.search(row, col, graph)
+        
+        floorCount = 0
+        for r in range(row):
+            for c in range(col):
+                if graph[r][c].floor == True:
+                    floorCount += 1
+        self.assertEqual(floorCount, 8)
     
+    def test_set_floor_changes_value(self):
+        row = 3
+        col = 3
+        percent = 100
+        graph = g.make_graph(row, col, percent)
+        graph[0][0].set_floor(False)
+        self.assertEqual(graph[0][0].floor, False)
+
+    def test_count_neighbours_returns_correct_value(self):
+        row = 3
+        col = 3
+        percent = 100
+        graph = g.make_graph(row, col, percent)
+        graph[0][1].set_floor(False)
+        neighbouringFloor = graph[0][0].count_neighbours()
+        self.assertEqual(neighbouringFloor, 2)
+
+
     def test_addNeighbours_adds_right_amout_o_neighbours(self):
         row = 3
         col = 3

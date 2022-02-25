@@ -3,7 +3,7 @@
 Unittest is used for the testing. Tests are mainly making sure that algorithms work as intented. The GUI doesn't have tests. 
 
 ## Coverage report: 
-<img src = >
+<img src = https://github.com/Maijjay/tira-cavegenerator/blob/main/documentation/coveragereport.png>
 
 ## What has been tested:
 

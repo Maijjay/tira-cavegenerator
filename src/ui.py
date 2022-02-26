@@ -1,4 +1,5 @@
 
+from turtle import fillcolor
 import graphs as g
 from tkinter import *
 from tkinter import ttk
@@ -8,7 +9,7 @@ import numpy as np
 
 root = Tk()
 root.title('Tkinter Window Demo')
-root.geometry('600x600+50+50')
+root.geometry('800x800+50+50')
 root.resizable(True, True)
 
 global row
@@ -18,6 +19,7 @@ global graph
 
 frame = ttk.Frame(root)
 frame.grid(row=0, column=1)
+canvas = Canvas(root, bg="white", width=1100, height=1100)
 
 
 def initializeGrid(r, c, p):
@@ -31,6 +33,11 @@ def initializeGrid(r, c, p):
     row = int(r.get())
     col = int(c.get())
     percent = int(p.get())
+
+    # canvas = Canvas(root, width=row+10, height=col+10)
+    # canvas.grid(row = 0, column = 0, columnspan=5)
+    # board = Board(canvas, 60, row, col, row+10, col+10)
+    canvas.grid(row = 0, column = 1, rowspan=row, columnspan=col)
 
     graph = g.make_graph(row, col, percent)
 
@@ -83,14 +90,26 @@ def displayGraph(row, col, graph):
         col (int): Number of columns
         graph ([][]): Graph with floors and walls
     """
+    startx = 0
+    starty = 0
+    endx = 0
+    endy = 0
     for i in range(0, row):
         for j in range(0, col):
-            floor = tk.Canvas(root, bg="red", height=30, width=30)
-            wall = tk.Canvas(root, bg="green", height=30, width=30)
+            
+            # floor = tk.Canvas(root, bg="red", height=30, width=30)
+            # wall = tk.Canvas(root, bg="green", height=30, width=30)
+            coord = i*10+30, j*10+30, i*10+60, j*10+60
+
             if (graph[i][j].get_floor()):
-                floor.grid(row = i, column = j+1)
+                canvas.create_rectangle(coord, fill="red")
             else:
-                wall.grid(row = i, column = j+1)
+                canvas.create_rectangle(coord, fill="green")
+        startx = 10
+        starty += 10
+        endx += 60
+        endy = 60
+
             
             
 

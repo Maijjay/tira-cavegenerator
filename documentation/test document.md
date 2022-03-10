@@ -35,3 +35,39 @@ Unittest is used for the testing. Tests are mainly making sure that algorithms w
 - count_neighbours -method is tested with making a graph of only floors. Node in position [0][1] is changed to a wall and so the node [0][0] has 2 floor -neighbours.
 
 - add_neighbour -method is tested with making a graph of only floors. The test then counts neighgours of a corner -node, side -node and a middle -node. The values are 3, 5, and 8.
+
+# Performance tests:
+
+These performance tests are made without the gui:
+
+## Testing with 50x50 graph.
+
+- Initializing the graph: 0.02633500099182129 seconds
+- Modifying the graph once: 0.003576040267944336 seconds
+- Modifying the graph 20 times: 0.06455397605895996 seconds
+- Finding the biggest cave and removing the smaller ones: 0.02506113052368164 seconds
+- Final time 0.11964011192321777 seconds
+
+## Testing with 100x100 graph.
+
+- Initializing the graph: 0.12795376777648926 seconds
+- Modifying the graph once: 0.01478886604309082 seconds
+- Modifying the graph 20 times: 0.27338480949401855 seconds
+- Finding the biggest cave and removing the smaller ones: 0.2854752540588379 seconds
+- Final time 0.7017359733581543 seconds
+
+## Testing with 150x150 graph.
+
+- Initializing the graph: 0.23893094062805176 seconds
+- Modifying the graph once: 0.03211808204650879 seconds
+- Modifying the graph 20 times: 0.6301367282867432 seconds
+- Finding the biggest cave and removing the smaller ones: 1.6702330112457275 seconds
+- Final time 2.571563959121704 seconds
+
+## Testing with 300x300 graph.
+
+- Initializing the graph: 0.9253158569335938 seconds
+- Modifying the graph once: 0.11847400665283203 seconds
+- Modifying the graph 20 times: 2.2342658042907715 seconds
+- Finding the biggest cave and removing the smaller ones: 36.0832200050354 seconds
+- Final time 39.36140704154968 seconds: 

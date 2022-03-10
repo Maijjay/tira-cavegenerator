@@ -1,5 +1,6 @@
 """Has functions to make a graph, and modify it into a cave"""
 import random
+from xmlrpc.client import Boolean
 import numpy as np
 import nodes as n
 
@@ -74,24 +75,23 @@ def search(row, col, graph):
     """
     current_cave = []
     largest_cave = []
-    visited = []
+    visited = np.zeros((row, col), dtype = Boolean)
     cave_size = 0
 
     for current_r in range(row):
         for current_c in range(col):
+
             if graph[current_r][current_c].floor is True:
                 current_cave = []
-                cave_length = len(visited)
 
-                depth_search(graph[current_r][current_c], visited, current_cave)
+                iterative_depth_search(graph[current_r][current_c], visited, current_cave)
 
-                new_lenght = len(visited) - cave_length
-                if cave_size < new_lenght:
+                cave_length = len(current_cave)
+                if cave_size < cave_length:
                     largest_cave = current_cave
-                    cave_size = new_lenght
+                    cave_size = cave_length
 
     delete_small_caves(row, col, graph, largest_cave)
-    # print(len(largest_cave))
     return graph
 
 def depth_search(node, visited, current_cave):
@@ -101,15 +101,33 @@ def depth_search(node, visited, current_cave):
         node (Node): Node
         visited ([]): Keeps a track of nodes that have been visited
     """
-    if node not in visited:
+    if visited[node.get_x()][node.get_y()] == False:
         current_cave.append(node)
-        visited.append(node)
+        
+        visited[node.get_x()][node.get_y()] = True
         for neighbour in node.neighbours:
             if neighbour.floor is True:
                 depth_search(neighbour, visited, current_cave)
+    
+
+def iterative_depth_search(start_node, visited, current_cave):
+    stack = [start_node]
+
+    while stack:
+        node = stack.pop()
+        if visited[node.get_x()][node.get_y()] == False:
+            current_cave.append(node)
+            visited[node.get_x()][node.get_y()] = True
+            for neighbour in node.neighbours:
+                if neighbour.floor is True:
+                    stack.append(neighbour)
+    
+    return visited
+
 
 def delete_small_caves(row, col, graph, largest_cave):
     """Deletes all the smaller caves from the graph
+
 
     Args:
         row (int): Amount of rows in the graph

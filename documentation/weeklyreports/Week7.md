@@ -1,0 +1,5 @@
+I had an issue with the recursive DFS, because it caused the exceeding of the maximum recursion depth. I was able to fix it by chaning the recursive DFS to the iterative DFS. I also noticed that I could make the program run faster by changing the visited -list to a two dimensional list. This way it can check wheter a node has been visited by its coordinates rather than going through the whole list everytime. I had already made some performance testing but after fixing these issues I made the testing again, and it was indeed a lot faster. Sadly I didn't keep the old results for comparison.
+
+In the GUI I had an issue with the modifying button, because the more it was pressed, the slower it modified the graph. I found a method for clearing the canvas so the creating of a rectangle (floor or wall) doesn't cause memory leakage anymore. I changed text inputs to sliders and also decided to change the maximum values for the row and column to ones that fit my laptop screen well.
+
+I used about 13 hours for this project this week.

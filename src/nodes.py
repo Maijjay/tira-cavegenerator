@@ -28,6 +28,16 @@ class Node:
         """
         return self.x_row, self.y_col
 
+    def get_x(self): # pragma: no cover
+        """Returns row of the node in graph
+        """
+        return self.x_row
+
+    def get_y(self): # pragma: no cover
+        """Returns column of the node in graph
+        """
+        return self.y_col
+
     def count_neighbours(self):
         """Counts how many of the nodes neighbours are floor
 
